@@ -1,0 +1,37 @@
+# Adopt version 2 syntax
+#   https://docs.docker.com/compose/compose-file/#/versioning
+version: '2'
+
+volumes:
+    database_data:
+        driver: local
+services:
+    nginx:
+        container_name: zend-cconvert-nginx
+        image: nginx:latest
+        ports:
+            - 1234:80
+        volumes:
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        volumes_from:
+            - php
+    php:
+        container_name: zend-cconvert-php
+        build: ./docker/php/
+        expose:
+            - 9000
+        volumes:
+            - .:/var/www/html
+              
+    mariadb:
+        container_name: zend-cconvert-mariadb
+        image: mariadb:latest
+        expose:
+            - 3306
+        volumes:
+            - database_data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: zend_project
+            MYSQL_USER: zend_project
+            MYSQL_PASSWORD: zend_project
