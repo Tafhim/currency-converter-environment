@@ -23,6 +23,13 @@ fi
 # Go into source directory
 cd ./public/
 
+if [ $FIRST_RUN = "yes" ]; then
+    PROJECT_SRC_BRANCH=$(git branch | grep \* | awk -F ' ' '{ print $2 }')
+    if [ $PROJECT_SRC_BRANCH = "(HEAD" ]; then
+        git checkout master
+    fi
+fi
+
 # pull the current branch
 echo "Pulling latest changes to current branch: $(git branch | grep \* | awk -F ' ' '{ print $2 }')"
 git pull origin $(git branch | grep \* | awk -F ' ' '{ print $2 }')
