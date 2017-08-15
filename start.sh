@@ -17,7 +17,7 @@ INSTANCE_ID="zend-cconvert-$(cat ./instance)"
 echo "Instance ID: $INSTANCE_ID";
 
 if [ $FIRST_RUN = "yes" ]; then
-    grep -rl "zend-cconvert" . --exclude=.git --exclude=first_boot.sh | xargs sed -i "s/zend-cconvert/$INSTANCE_ID/g"
+    grep -rl "zend-cconvert" . --exclude=.git --exclude=start.sh | xargs sed -i "s/zend-cconvert/$INSTANCE_ID/g"
 fi
 
 # Go into source directory
