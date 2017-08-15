@@ -18,6 +18,13 @@ git clone --recursive -j8 git@github.com:Tafhim/currency-converter-environment.g
 cd currency_converter
 ./start.sh
 ```
+
+## Usage
+To start the server
+```./start.sh```
+To shut down
+```./shutdown.sh```
+
 ## Note
 - If you face permission denied issues when trying to edit code, go into docker/php/entrypoint.sh and change the USER_ID value to your own UNIX user ID, you can find that out using the command ```id```
 - Some config files are being ignored by the git repo, such as docker-compose.yml
