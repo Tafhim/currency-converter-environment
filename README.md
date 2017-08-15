@@ -14,7 +14,7 @@ A simple application backed by Zend framework and Docker containers that convert
 
 ## Installation
 ```bash
-git clone --recursive -j8 -b testing git@github.com:Tafhim/currency-converter-environment.git currency_converter
+git clone --recursive -j8 git@github.com:Tafhim/currency-converter-environment.git currency_converter
 cd currency_converter
 ./start.sh
 ```
