@@ -25,7 +25,7 @@ cd ./public/
 
 if [ $FIRST_RUN = "yes" ]; then
     PROJECT_SRC_BRANCH=$(git branch | grep \* | awk -F ' ' '{ print $2 }')
-    if [ $PROJECT_SRC_BRANCH = "(HEAD" ]; then
+    if [ $PROJECT_SRC_BRANCH != "master" ]; then
         git checkout master
     fi
 fi
